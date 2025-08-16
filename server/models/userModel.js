@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['Guest', 'Hotel'], // Defines the possible roles
+      enum: ['Guest', 'Hotel'],
       required: true,
     },
     // This field is only relevant if the role is 'Hotel'

@@ -60,7 +60,6 @@ function NewTicket() {
 
       <div className="form-container">
         <form onSubmit={onSubmit}>
-          {/* NEW: Room Number Input Field */}
           <div className='form-group'>
             <label htmlFor='roomNumber'>Room Number</label>
             <input

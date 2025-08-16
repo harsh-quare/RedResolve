@@ -1,8 +1,8 @@
 const asyncHandler = require('express-async-handler');
 const Ticket = require('../models/ticketModel');
-const User = require('../models/userModel'); // Import User model for checks
+const User = require('../models/userModel');
 const fileUploadCloudinary = require('../utils/fileUploadCloudinary');
-const { getIO } = require('../socket'); // Import the getIO function
+const { getIO } = require('../socket');
 
 // @desc    Create a new ticket
 // @route   POST /api/tickets

@@ -9,7 +9,7 @@ function Home() {
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    // This redirect logic remains to handle hotel staff
+    // This redirect logic to handle hotel staff
     if (user && user.role === 'Hotel') {
       navigate('/dashboard');
     }

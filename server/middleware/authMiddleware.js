@@ -13,11 +13,7 @@ const protect = asyncHandler(async (req, res, next) => {
       // Fetch the user from the database
       req.user = await User.findById(decoded.id).select('-password');
       
-      // --- DEBUGGING LOG ---
-      // This will show us exactly what is in the user object in your terminal
-      console.log('--- User Authenticated in Middleware ---');
       console.log(req.user);
-      console.log('------------------------------------');
       
       if (!req.user) {
         res.status(401);
@@ -37,7 +33,6 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
-// ... (isHotelStaff and isGuest functions remain the same)
 const isHotelStaff = (req, res, next) => {
     if (req.user && req.user.role === 'Hotel') {
       next();

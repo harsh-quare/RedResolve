@@ -102,11 +102,11 @@ export const ticketSlice = createSlice({
     addNewMessage: (state, action) => {
       state.ticket.messages.push(action.payload);
     },
-    // NEW: Action to add a ticket to the top of the list
+    // Action to add a ticket to the top of the list
     addNewTicketToList: (state, action) => {
       state.tickets.unshift(action.payload);
     },
-    // NEW: Reducer to update a ticket in the main list
+    // Reducer to update a ticket in the main list
     updateTicketInList: (state, action) => {
       state.tickets = state.tickets.map((ticket) =>
         ticket._id === action.payload._id ? action.payload : ticket
@@ -148,7 +148,6 @@ export const ticketSlice = createSlice({
         state.message = action.payload;
       })
       .addCase(addMessage.fulfilled, (state, action) => {
-        // This now correctly replaces the old array with the new one from the API
         state.ticket.messages = action.payload;
         })
       .addCase(getHotelTickets.fulfilled, (state, action) => {

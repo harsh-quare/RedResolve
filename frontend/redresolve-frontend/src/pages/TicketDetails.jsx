@@ -58,7 +58,7 @@ function TicketDetails() {
     toast.success(`Ticket status updated to ${newStatus}`);
   };
 
-  // This check is now more robust to prevent crashes during re-renders
+  // to prevent crashes during re-renders
   if (isLoading || !ticket?.status) {
     return <Spinner />;
   }
@@ -80,7 +80,7 @@ function TicketDetails() {
           <p>{ticket.description}</p>
         </div>
 
-         {/* NEW: Display initial images if they exist */}
+         {/* Display initial images if they exist */}
         {ticket.mediaUrls && ticket.mediaUrls.length > 0 && (
           <div className='ticket-images'>
             <h3>Guest Submitted Images:</h3>
@@ -96,13 +96,13 @@ function TicketDetails() {
       </header>
 
       <div className="messages">
-        {/* Added a check for ticket.messages to prevent crash */}
+        {/* a check for ticket.messages to prevent crash */}
         {ticket.messages && ticket.messages.map((msg) => (
           <div
             key={msg._id}
             className={`message ${msg.senderType === 'Hotel' ? 'staff-message' : 'guest-message'}`}
           >
-            {/* Added optional chaining to safely access sender name */}
+            {/* optional chaining to safely access sender name */}
             <h4>{msg.sender?.name || (msg.senderType === 'Hotel' ? 'Hotel Staff' : 'You')}</h4>
             <p>{msg.text}</p>
             {msg.mediaUrl && <img src={msg.mediaUrl} alt="Proof" style={{ width: '200px', borderRadius: '5px', marginTop: '10px' }} />}
@@ -113,7 +113,7 @@ function TicketDetails() {
         ))}
       </div>
 
-      {/* RESTORED: Hotel Staff Controls */}
+      {/* Hotel Staff Controls */}
       {user.role === 'Hotel' && ticket.status !== 'Closed' && (
         <div className="staff-controls">
           <h2>Staff Actions</h2>

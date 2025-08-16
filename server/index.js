@@ -12,9 +12,8 @@ const ticketRoutes = require('./routes/ticketRoutes');
 const userRoutes = require('./routes/userRoutes');
 const hotelRoutes = require('./routes/hotelRoutes');
 
-// Load environment variables
+
 dotenv.config();
-// Connect to the database & Cloudinary
 connectDB();
 connectCloudinary();
 
@@ -29,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileUpload({ useTempFiles: true, tempFileDir: '/tmp/' }));
 
-// Socket.IO Connection Logic (can stay here)
+// Socket.IO Connection Logic
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
 

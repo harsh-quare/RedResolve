@@ -5,7 +5,7 @@ const MessageSchema = new Schema(
   {
     sender: {
       type: Schema.Types.ObjectId,
-      ref: 'User', // Correctly references the User model
+      ref: 'User',
       required: true,
     },
     senderType: {
@@ -28,12 +28,12 @@ const TicketSchema = new Schema(
   {
     guest: {
       type: Schema.Types.ObjectId,
-      ref: 'User', // Correctly references the User model
+      ref: 'User',
       required: true,
     },
     hotel: {
       type: Schema.Types.ObjectId,
-      ref: 'Hotel', // Correctly references the Hotel model
+      ref: 'Hotel',
       required: true,
     },
     roomNumber: {

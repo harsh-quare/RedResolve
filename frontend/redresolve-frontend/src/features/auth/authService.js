@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/api/users/'; // Update with your actual auth route
+const API_URL = '/api/users/';
 
 // Register user
 const register = async (userData) => {

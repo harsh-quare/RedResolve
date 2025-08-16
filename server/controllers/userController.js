@@ -34,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create(userData);
 
   if (user) {
-    // This is the critical part. We now add the booking info to the response.
+    // we now add the booking info to the response.
     const responseData = {
       _id: user._id,
       name: user.name,
@@ -44,11 +44,9 @@ const registerUser = asyncHandler(async (req, res) => {
     };
 
     if (user.role === 'Guest') {
-      // In a real app, you would create a new booking here.
-      // For now, we are mocking it.
       responseData.currentBooking = {
-        hotelId: '689f2d4db675a49e5fddce01', // Use a real hotel ID from your DB
-        roomNumber: '101', // Assign a default room number
+        hotelId: '689f2d4db675a49e5fddce01', // Using a real hotel ID from DB
+        roomNumber: '101', // Assigning a default room number
       };
     } else if (user.role === 'Hotel') {
       responseData.hotel = user.hotel;
@@ -78,7 +76,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
     if (user.role === 'Guest') {
       responseData.currentBooking = {
-        hotelId: '689f2d4db675a49e5fddce01', // Use a real hotel ID from your DB
+        hotelId: '689f2d4db675a49e5fddce01', // Using a real hotel ID from DB
         roomNumber: '101',
       };
     } else if (user.role === 'Hotel') {
